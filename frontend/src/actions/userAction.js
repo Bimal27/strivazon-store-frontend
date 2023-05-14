@@ -55,7 +55,7 @@ export const login = (email, password) => async (dispatch, getState) => {
 
            const config = { headers: { "Content-Type": "application/json" },  withCredentials:true};
 
-           const { data } = await axios.post(`https://strivazon-ecommerce-store.herokuapp.com/login`, { email, password }, config);
+           const { data } = await axios.post(`https://ecommerce-iobi.onrender.com/login`, { email, password }, config);
 
            dispatch({ type: LOGIN_SUCCESS, payload: data.user });
          } catch (error) {
@@ -74,7 +74,7 @@ export const register = userData => async dispatch => {
 
     const config = { headers: { "Content-Type": "multipart/form-data" } };
 
-    const { data } = await axios.post(`https://strivazon-ecommerce-store.herokuapp.com/register`, userData, {withCredentials:true}, config);
+    const { data } = await axios.post(`https://ecommerce-iobi.onrender.com/register`, userData, {withCredentials:true}, config);
 
     dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user });
   } catch (error) {
@@ -91,7 +91,7 @@ export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
 
-    const { data } = await axios.get(`https://strivazon-ecommerce-store.herokuapp.com/me`,{withCredentials:true});
+    const { data } = await axios.get(`https://ecommerce-iobi.onrender.com/me`,{withCredentials:true});
 
     dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
   } catch (error) {
@@ -102,7 +102,7 @@ export const loadUser = () => async (dispatch) => {
 // Logout User
 export const logout = () => async (dispatch) => {
   try {
-    await axios.get(`https://strivazon-ecommerce-store.herokuapp.com/logout`);
+    await axios.get(`https://ecommerce-iobi.onrender.com/logout`);
 
     dispatch({ type: LOGOUT_SUCCESS });
   } catch (error) {
@@ -116,7 +116,7 @@ export const updateProfile = (id,userData) => async (dispatch) => {
   try {
     dispatch({ type: UPDATE_PROFILE_REQUEST });
 
-    const { data } = await axios.put(`https://strivazon-ecommerce-store.herokuapp.com/me/${id}`, userData, {withCredentials:true});
+    const { data } = await axios.put(`https://ecommerce-iobi.onrender.com/me/${id}`, userData, {withCredentials:true});
 
     dispatch({ type: UPDATE_PROFILE_SUCCESS, payload: data.success });
     
@@ -139,7 +139,7 @@ export const updatePassword = passwords => async (dispatch) => {
     // const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.put(
-      `https://strivazon-ecommerce-store.herokuapp.com/password/update`,passwords, {withCredentials:true});
+      `https://ecommerce-iobi.onrender.com/password/update`,passwords, {withCredentials:true});
 
     dispatch({ type: UPDATE_PASSWORD_SUCCESS, payload: data.success });
   } catch (error) {
@@ -154,7 +154,7 @@ export const updatePassword = passwords => async (dispatch) => {
 export const getAllUsers = () => async (dispatch) => {
   try {
     dispatch({ type: ALL_USERS_REQUEST });
-    const { data } = await axios.get(`https://strivazon-ecommerce-store.herokuapp.com/admin/users`,{withCredentials:true});
+    const { data } = await axios.get(`https://ecommerce-iobi.onrender.com/admin/users`,{withCredentials:true});
 
     dispatch({ type: ALL_USERS_SUCCESS, payload: data.users });
   } catch (error) {
@@ -166,7 +166,7 @@ export const getAllUsers = () => async (dispatch) => {
 export const getUserDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: USER_DETAILS_REQUEST });
-    const { data } = await axios.get(`https://strivazon-ecommerce-store.herokuapp.com/admin/user/${id}`,{withCredentials:true});
+    const { data } = await axios.get(`https://ecommerce-iobi.onrender.com/admin/user/${id}`,{withCredentials:true});
 
     dispatch({ type: USER_DETAILS_SUCCESS, payload: data.user });
   } catch (error) {
@@ -180,7 +180,7 @@ export const updateUser = (id, userData) => async (dispatch) => {
     dispatch({ type: UPDATE_USER_REQUEST });
 
     const { data } = await axios.put(
-      `https://strivazon-ecommerce-store.herokuapp.com/admin/user/${id}`,
+      `https://ecommerce-iobi.onrender.com/admin/user/${id}`,
       userData,
       {withCredentials:true}
     );
@@ -199,7 +199,7 @@ export const deleteUser = (id) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_USER_REQUEST });
 
-    const { data } = await axios.delete(`https://strivazon-ecommerce-store.herokuapp.com/admin/user/${id}`,{withCredentials:true});
+    const { data } = await axios.delete(`https://ecommerce-iobi.onrender.com/admin/user/${id}`,{withCredentials:true});
 
     dispatch({ type: DELETE_USER_SUCCESS, payload: data });
   } catch (error) {
