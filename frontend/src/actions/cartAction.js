@@ -9,7 +9,7 @@ export const SAVE_SHIPPING_INFO = "SAVE_SHIPPING_INFO";
 
 // Add to Cart
 export const addItemsToCart = (id, quantity) => async (dispatch, getState) => {
-  const { data } = await axios.get(`https://strivazon-ecommerce-store.herokuapp.com/product/${id}`);
+  const { data } = await axios.get(`https://ecommerce-iobi.onrender.com/${id}`);
 
   dispatch({
     type: ADD_TO_CART,
