@@ -66,7 +66,7 @@ const ProductDetails = ({ match }) => {
     const singleProduct = async () => {
       let id = match.params.id
       if (id) {
-        let response = await fetch(`https://strivazon-ecommerce-store.herokuapp.com/product/` + id)
+        let response = await fetch(`https://ecommerce-iobi.onrender.com/product/` + id)
         let data = await response.json()
         setProduct(data)
         setIsLoading(false)
