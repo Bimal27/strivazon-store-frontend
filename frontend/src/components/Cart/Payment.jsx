@@ -56,7 +56,7 @@ const Payment = ({ history }) => {
         },
       }
       const { data } = await axios.post(
-        'https://strivazon-ecommerce-store.herokuapp.com/payment/process',
+        'https://ecommerce-iobi.onrender.com/payment/process',
         paymentData,
         config,
       )
