@@ -49,7 +49,7 @@ const Register = ({ history }) => {
 
       console.log(formData)
 
-      let response = await fetch('https://strivazon-ecommerce-store.herokuapp.com/register', {
+      let response = await fetch('https://ecommerce-iobi.onrender.com/register', {
         method: 'POST',
         body: formData,
       })
