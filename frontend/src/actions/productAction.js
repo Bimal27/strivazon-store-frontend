@@ -49,7 +49,7 @@ export const getProductsAction = (keyword='', currentPage = 1) => {
       payload: true,
     })
     try {
-      let link = `https://strivazon-ecommerce-store.herokuapp.com/product?keyword=${keyword}&page=${currentPage}`;
+      let link = `https://ecommerce-iobi.onrender.com/product?keyword=${keyword}&page=${currentPage}`;
       let resp = await fetch(link)
       if (resp.ok) {
         let products = await resp.json()
@@ -96,7 +96,7 @@ export const createProduct = (productData) => async (dispatch) => {
     dispatch({ type: NEW_PRODUCT_REQUEST });
 
     const { data } = await axios.post(
-      `https://strivazon-ecommerce-store.herokuapp.com/admin/product`,
+      `https://ecommerce-iobi.onrender.com/admin/product`,
       productData,
       {withCredentials:true}
     );
@@ -123,7 +123,7 @@ export const updateProduct = (id, productData) => async (dispatch) => {
     // };
 
     const { data } = await axios.put(
-      `https://strivazon-ecommerce-store.herokuapp.com/admin/product/${id}`,
+      `https://ecommerce-iobi.onrender.com/admin/product/${id}`,
       productData,
       {withCredentials:true}
     );
@@ -145,7 +145,7 @@ export const deleteProduct = (id) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_PRODUCT_REQUEST });
 
-    const { data } = await axios.delete(`https://strivazon-ecommerce-store.herokuapp.com/admin/product/${id}`,{withCredentials:true});
+    const { data } = await axios.delete(`https://ecommerce-iobi.onrender.com/admin/product/${id}`,{withCredentials:true});
 
     dispatch({
       type: DELETE_PRODUCT_SUCCESS,
@@ -164,7 +164,7 @@ export const getProductDetails = id => async dispatch => {
   try {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
 
-    const { data } = await axios.get(`https://strivazon-ecommerce-store.herokuapp.com/product/${id}`);
+    const { data } = await axios.get(`https://ecommerce-iobi.onrender.com/product/${id}`);
 
     dispatch({
       type: PRODUCT_DETAILS_SUCCESS,
@@ -182,7 +182,7 @@ export const getAdminProduct = () => async (dispatch) => {
   try {
     dispatch({ type: ADMIN_PRODUCT_REQUEST });
 
-    const { data } = await axios.get(`https://strivazon-ecommerce-store.herokuapp.com/products`,{withCredentials:true});
+    const { data } = await axios.get(`https://ecommerce-iobi.onrender.com/products`,{withCredentials:true});
 
     dispatch({
       type: ADMIN_PRODUCT_SUCCESS,
@@ -201,7 +201,7 @@ export const newReview = (reviewData) => async (dispatch) => {
   try {
     dispatch({ type: NEW_REVIEW_REQUEST });
 
-    const { data } = await axios.put(`https://strivazon-ecommerce-store.herokuapp.com/review`, reviewData,{withCredentials:true});
+    const { data } = await axios.put(`https://ecommerce-iobi.onrender.com/review`, reviewData,{withCredentials:true});
 
     dispatch({
       type: NEW_REVIEW_SUCCESS,
@@ -220,7 +220,7 @@ export const getAllReviews = (id) => async (dispatch) => {
   try {
     dispatch({ type: ALL_REVIEW_REQUEST });
 
-    const { data } = await axios.get(`https://strivazon-ecommerce-store.herokuapp.com/reviews/${id}`,{withCredentials:true});
+    const { data } = await axios.get(`https://ecommerce-iobi.onrender.com/reviews/${id}`,{withCredentials:true});
 
     dispatch({
       type: ALL_REVIEW_SUCCESS,
@@ -240,7 +240,7 @@ export const deleteReviews = (reviewId, productId) => async (dispatch) => {
     dispatch({ type: DELETE_REVIEW_REQUEST });
 
     const { data } = await axios.delete(
-      `https://strivazon-ecommerce-store.herokuapp.com/reviews?id=${reviewId}&productId=${productId}`,{withCredentials:true}
+      `https://ecommerce-iobi.onrender.com/reviews?id=${reviewId}&productId=${productId}`,{withCredentials:true}
     );
 
     dispatch({
